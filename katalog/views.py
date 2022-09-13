@@ -1,5 +1,10 @@
 from django.shortcuts import render
-
+from katalog.models import CatalogItem
 # TODO: Create your views here.
-def index(request):
-    return render(request, 'katalog.html')
+def show_katalog(request):
+    data_katalog = CatalogItem.objects.all()
+    context = {
+    'list_katalog': data_katalog,
+    'nama': 'Inaya'
+}
+    return render(request, "katalog.html", context)
