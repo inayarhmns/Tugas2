@@ -2,6 +2,7 @@
 ---
 
 ## Aplikasi Heroku : [django-app-inaya](https://django-app-inaya.herokuapp.com/)
+## Aplikasi Heroku /katalog : [django-app-inaya/katalog](https://django-app-inaya.herokuapp.com/katalog/)
 ---
 
 
