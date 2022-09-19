@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.WatchlistItem",
+        "pk": 1,
+        "fields": {
+            "watched": "YES",
+            "title": "1917",
+            "rating": 9,
+            "release_date": "2020-01-18",
+            "review": "Great film to cry on history lesson"
+        }
+    },
+    { 
+    "model": "mywatchlist.WatchlistItem",
+        "pk": 2,
+        "fields": {
+            "watched": "YES",
+            "title": "Soul",
+            "rating": 9,
+            "release_date": "2020-10-11",
+            "review": "An animated movie for kids and adults, brought so many emotions, have amazing soundtrack throughout the movie"
+        }
+    }, 
+    { 
+        "model": "mywatchlist.WatchlistItem",
+            "pk": 3,
+            "fields": {
+                "watched": "LISTED",
+                "title": "Minions: The Rise of Gru",
+                "rating": 8,
+                "release_date": "2022-06-28",
+                "review": "There is very little that I can add to the reviews on here, that have explained what is so wonderful about The Godfather so well. I have seen many amazing movies, as well as some clunkers, but The Godfather was beyond amazing. - Sofia Metzen"
+            }
+    },
+    { 
+        "model": "mywatchlist.WatchlistItem",
+            "pk": 4,
+            "fields": {
+                "watched": "YES",
+                "title": "Ralph Breaks the Internet",
+                "rating": 7,
+                "release_date": "2018-11-23",
+                "review": "Funny, interesting, but personally i like the prequel one better"
+            }
+    },
+    { 
+        "model": "mywatchlist.WatchlistItem",
+            "pk": 5,
+            "fields": {
+                "watched": "YES",
+                "title": "Lady Bird",
+                "rating": 4,
+                "release_date": "2018-02-28",
+                "review": "Definitely a movie. The plot is not that interesting though, I don't really learn anything from this movie."
+            }
+    },
+    { 
+        "model": "mywatchlist.WatchlistItem",
+            "pk": 6,
+            "fields": {
+                "watched": "LISTED",
+                "title": "Incantation",
+                "rating": 9,
+                "release_date": "2022-03-18",
+                "review": "This became my favorite horror movie of all time. It is by no means a masterpiece but I find it to be really, really well-done. - Reynaldo Jr. Allera"
+            }
+    },
+    { 
+        "model": "mywatchlist.WatchlistItem",
+            "pk": 7,
+            "fields": {
+                "watched": "LISTED",
+                "title": "PENGABDI SETAN 2: COMMUNION",
+                "rating": 8,
+                "release_date": "2022-08-04",
+                "review": "Even more scary than the first one  - CNN Indonesia"
+            }
+    },
+    { 
+        "model": "mywatchlist.WatchlistItem",
+            "pk": 8,
+            "fields": {
+                "watched": "LISTED",
+                "title": "Mencuri Raden Saleh",
+                "rating": 9,
+                "release_date": "2022-08-25",
+                "review": "Not so light movie, will force you to follow the storyline until the end - CNN Indonesia"
+            }
+    },
+    { 
+        "model": "mywatchlist.WatchlistItem",
+            "pk": 9,
+            "fields": {
+                "watched": "LISTED",
+                "title": "Dune",
+                "rating": 9,
+                "release_date": "2021-10-13",
+                "review": "Hands down the best thing going for Dune is the stunning visuals from beginning to end. Director Denis Villeneuve compiled a beautiful collection of scenes that are truly a sight to see. One thing you’ll notice is how the cinematography seamlessly compliments so many elements in the film.  Dune is so masterfully shot, that you could watch this movie on mute and still be entertained. Unlike the original film and the TV series,  the plot was easy to follow. Despite the dense, sci-elements in the story, I appreciated the focused approach on only one group/family. It was helpful to explore this fantasy world and all the cool technology through the perspective of just a few characters. As a result, it doesn’t take long to have a sensible grasp of the underlying politics and motivations of various characters. Timothée Chalamet was exceptional as Paul Atreides. His performance made me care about his character’s journey and his potential growth. Oscar Isaac as Duke Leto was also great in his role. He presented such a stoic feel to his character that almost steals every scene he’s featured in. Jason Momoa as Duncan, totally badassery!!! While the role may have been small, this was right in Momoa’s lane especially when it came to his fight scenes. Of all of the roles, Stellan Skarsgård surprised me the most as The Baron. He was completely unrecognizable thanks to both his delivery and the Dune make up team. I'm looking forward to the next part! - Custom Made"
+            }
+    },
+    { 
+        "model": "mywatchlist.WatchlistItem",
+            "pk": 10,
+            "fields": {
+                "watched": "LISTED",
+                "title": "Don't Look Up",
+                "rating": 8,
+                "release_date": "2021-12-10",
+                "review": "Director Adam McKay latest outing is a biting satire with its crosshairs clearly aimed at politicians and the larger society out there who are apathetic of the looming climate crisis facing the world. Jennifer Lawrence and Leonardo Di Caprio star as a pair of scientist who discover a rogue comet, headed towards the Earth, triggering what they estimate to be an extinction level event. - Nidhun Thankachan"
+            }
+    }
+]
