@@ -4,7 +4,9 @@
 <h2>Username: </h2>
 <h2>{{username}}</h2>
 <button><a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a></button>
-<table>
+<table border = '3'
+        style = "border-color: teal;"> 
+    
     <tr>
     <th>Tanggal Pembuatan</th>
     <th>Judul Task</th>

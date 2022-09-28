@@ -6,12 +6,12 @@
 
 ## Apa kegunaan {% csrf_token %} pada elemen forms? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
 
-{% csrf_token %} digunakan untuk melakukan generate token pada page yang dibuka oleh user. csrf_token ini diperlukan pada pembuatan form di page. Tujuan adanya token pada webpage adalah untuk menjaga keamanan agar page hanya menerima masukan dari page dengan token yang sama ketika di generate.
+{% csrf_token %} digunakan untuk melakukan generate token pada page yang dibuka oleh user. csrf_token ini diperlukan pada pembuatan form di page. Tujuan adanya token pada webpage adalah untuk menjaga keamanan agar page hanya tidak bisa diakses oleh page yang tokennya berbeda dengan token yang sudah digenerate sebelumnya
 
 --- 
 
 ## Apakah kita dapat membuat elemen form secara manual (tanpa menggunakan generator seperti {{ form.as_table }})?
-
+Bisa. Tanpa import forms kita bisa membuat form sendiri dengan tag `<form>` di HTML file, lalu diambil datanya menggunakan `request.POST.get('nama')` dimana nama tersebut adalah nama dari elemen yang ditambahkan ke `<form>` tag html
 
 
 --- 
