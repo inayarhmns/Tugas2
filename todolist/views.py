@@ -70,9 +70,7 @@ def create_task(request):
             temp = form.save(commit=False)
             temp.user = request.user
             form.save()
-            
-        else:
-            messages.info(request, 'Fields cannot be empty!')
+            return redirect('/todolist/')
     context = {'form':form}
     return render(request, 'create_task.html', context)
 
