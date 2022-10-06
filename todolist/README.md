@@ -1,7 +1,9 @@
+# Tugas 4 dan 5
+
 # Tugas 4 PBP
 ---
 
-## Aplikasi Heroku /mywatchlist : [django-app-inaya/mywatchlist](https://django-app-inaya.herokuapp.com/todolist)
+## Aplikasi Heroku /todolist : [django-app-inaya/todolist](https://django-app-inaya.herokuapp.com/todolist)
 ---
 
 ## Apa kegunaan {% csrf_token %} pada elemen forms? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
@@ -67,3 +69,71 @@ path('create-task/', views.create_task, name='create_task'),
 
 --- 
 
+
+
+# Tugas 5 PBP
+---
+
+## Aplikasi Heroku /todolist : [django-app-inaya/todolist](https://django-app-inaya.herokuapp.com/todolist)
+---
+
+## Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+
+- Inline: Memodifikai style css dari objek secara personal dengan menggunakan syntax `style=` di dalam objek yang ada di file html. 
+Kekurangannya tidak efisien untuk jumlah banyak karena harus modifikasi objek satu-satu. 
+Kelebihannya dapat digunakan jika ingin membuat custom style dari objek yang berbeda dengan style yang sudah ada.
+
+- Internal: Memodifikasi style css per-class yang ada di satu file html. Dilakukan dengan membuat tag `<style>` pada file html. 
+Kelebihannya dapat modifikasi objek yang berada di kelompok yang sama secara langsung, lebih cepat ketika mengoreksi style-nya, proses load website lebih cepat karena proses HTTP requestnya lebih sedikit.
+Kekurangannya hanya bisa digunakan di satu file html saja, sehingga suatu file html tidak bisa menggunakan template style file html yang lain
+
+- External: Memodifikasi style css dari file html dengan membuat file baru dengan extension `.css`. File external ini kemudian dapat digunakan oleh file html dengan cara meng-include tag `<link>` di bawah tag `<head>`
+Kelebihannya dapat digunakan oleh banyak file html yang meng-include link file external tersebut, load website menjadi lebih cepat.
+Kekurangannya webpage rentan menjadi berantakan jika file css external tidak berhasil dipanggil di file html saat jaringan internet yang kurang baik.
+
+--- 
+
+## Jelaskan tag HTML5 yang kamu ketahui.
+- `<a>` : untuk menyimpan hyperlink
+- `<body>` : untuk mendefinisikan body dari file html. (satu file html maksimal hanya bisa memiliki 1 body)
+- `<button>` : membuat button yang bisa diklik
+- `<form>` : membuat form untuk menerima informasi dari pengguna
+- `<head>` : mendefinisikan bagian informasi tentang documen webpage, misalnya title
+- `<link>` : membuat koneksi dengan sumber external, misalnya digunakan untuk css external file
+- `<html>` : mendefinisikan root dari file html
+- `<image>` : menyimpan data berupa gambar
+- `<i>` : membuat text menjadi miring (italic)
+- `<u>` : membuat text menjadi underlined
+- `<meta>` : mendefinisikan meta data dari file html
+- `<style>` : mendefinisikan style dari file html 
+- `<ul>` : membuat unordered list
+- `<ol>` : membuat ordered list
+- `<nav>` : membuat link navigasi
+- `<label>` : membuat label untuk suatu input control
+- `<p>` : mendefinisikan paragraf
+- `<q>` : mendefinisikan inline quote 
+- `<h1> - <h6>` : mendefinisikan headings yang ada di html
+
+--- 
+
+## Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+- Universal selector: melakukan select untuk semua elemen. Syntax: `*`
+
+- Type selector: melakukan select untuk tag elemen. Syntax: nama elemennya. misalnya tag `<h1>` dapat di select dengan Syntax: `h1`
+
+- Class selector: melakukan select untuk class. Syntax: `.namaKelas`
+
+- ID selector: melakukan select berdasarkan attribute id elemennya. Syntax: `#namaId`
+
+- Attribute selector: melakukan select dengan attribute nya. Syntax: `[attribute]`. 
+---
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas
+
+1. Membuat box untuk menu login, register, dan create-task, mengubah background color dari tiap-tiap halaman tersebut, Memodifikasi button dan font.
+
+2. Menggunakan class `card` dari bootstrap untuk menunjukkan setiap task pada todolist dan menempatkannya di dalam tabel.
+
+3. Menggunakan media query untuk mengubah background color menjadi putih ketika halaman windows dikecilkan
+
+--- 

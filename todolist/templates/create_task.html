@@ -1,20 +1,94 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Form Pembuatan Task</h2>
-<form method="POST" action="">
-    {% csrf_token %}
-    <table>
-        {{form.as_table}}
-        <tr>  
-            <td></td>
-            <td><input type="submit" name="submit" value="Save"/></td>  
-        </tr> 
-    </table>
-    <button><a href="/todolist/">Kembali</a></button>
-</form>
 
-</table>
+
+<html>
+    <head>
+    <style>
+        h2 {
+            color: navy;
+            justify-content: center;
+            margin-top: 50px;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        body{
+            background-color: rgb(125, 212, 183);
+        }
+        .tabel  {
+            
+            justify-content: center;
+            text-align: center;
+            margin-left: 200px;
+            margin-right: 50px;
+            margin-top: 50px;
+        }
+        .button {
+            text-decoration: black;
+            background-color: rgb(107, 132, 222);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            transition-duration: 0.4s;
+        
+            }
+        .button:hover {
+        background-color: aliceblue;
+            }
+        .box    {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            align-items: center;
+            width: 900px;
+            height: 700px;
+            background-color: transparent;
+            border-radius: 15px;
+            box-shadow: 0 10px 10px 10px rgb(0, 0, 0, .2);
+        }
+        .link   {
+            color: black;
+            text-decoration: none;
+        }
+        @media only screen and (max-width: 600px) {
+        body {
+            background-color: white;
+        }
+        }
+
+
+    </style>
+
+    </head>
+
+<body>
+    <div class="box">
+        <div class="tabel">
+            <h2>Form Pembuatan Task</h2>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <table> 
+                    {{form.as_table}}
+                    <tr>  
+                        <td></td>
+                        <td><input type="submit" name="submit" value="Save" class = "button"/></td>  
+                    </tr> 
+                </table>
+                <div class="tabel">
+                    <button class="button"><a href="/todolist/" class="link" >Kembali</a></button>
+                </div>
+            </form>
+            </table>   
+        </div> 
+    </div>
+</body>
+</html>
 
 
 {% endblock content %}
