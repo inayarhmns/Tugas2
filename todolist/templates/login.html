@@ -12,9 +12,11 @@
         
         body {
             background-color: cadetblue;
-            background-image: url("flamingo.png");
+            background-image: url('{% static "flamingo.png" %}');
             background-position: center;
+            background-position-y:top;
             background-repeat: no-repeat;
+            background-size: cover;
         }
         h1  {
             justify-content: center;
