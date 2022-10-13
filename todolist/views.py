@@ -1,7 +1,6 @@
-from pdb import post_mortem
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 from django.urls import reverse
 from django.shortcuts import redirect
@@ -10,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Task
 from todolist.forms import CreateTaskForm
+import datetime;
 
 # Create your views here.
 
@@ -17,15 +17,33 @@ title_list = []
 desc_list = []
 @login_required(login_url='/todolist/login/')  
 def show_todolist(request):
-    todolists = Task.objects.all()
     context = {
     'nama' : 'Inaya Rahmanisa',
     'npm'  : '2106708330',
-    'todolists' : todolists,
     'username' : request.user,
-    
     }
     return render(request, "todolist.html", context)
+
+
+def show_json(request):
+    data = Task.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@login_required(login_url='/todolist/login/')  
+def add_todolist(request):
+    if request.method == 'POST':
+        title = request.POST.get("title")
+        date = datetime.date.today()
+        description = request.POST.get("description")
+
+        new_barang = Task(title=title, date=date, description=description)
+        new_barang.user = request.user
+        new_barang.save()
+        data = {'title':title, 'date':date, 'description':description}
+        print(data)
+        return JsonResponse(data, safe=False)
+
+    return HttpResponseNotFound()
 
 def register(request):
     form = UserCreationForm()

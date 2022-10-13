@@ -1,105 +1,191 @@
 {% extends 'base.html' %}
-
 {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<html>
-    <head>
-    <style>
-        body    {
-            background-color: rgb(228, 218, 254);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        h2  {
-            color: navy;
-            justify-content: center;
-            margin-top: 20px;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .todolist   {
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            align-items: center;
-            width: 900px;
-            height: 600px;
-            background-color: transparent;
-            border-radius: 15px;
-           
-        }
-        .button {
-            text-decoration: black;
-            background-color: rgb(107, 132, 222);
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-align: center;
-            transition-duration: 0.4s;
+  <style>
+    body    {
+        background-color: rgb(228, 218, 254);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h2  {
+        color: navy;
+        justify-content: center;
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .todolist   {
+        text-align: center;
         
-            }
-        .button:hover {
-            background-color: aliceblue;
-            }
-        .link   {
-            color: black;
-            text-decoration: none;
+       
+    }
+    .button {
+        text-decoration: black;
+        background-color: rgb(107, 132, 222);
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        text-align: center;
+        transition-duration: 0.4s;
+        margin-bottom: 20px;
+    
         }
-        .mb-3   {
-            
-            justify-content: center;
-            text-align: center;
-            margin-left: 50px;
-            margin-right: 50px;
-            margin-top: 50px;
-            margin-bottom: 100px;
+    .button:hover {
+        background-color: aliceblue;
         }
-        @media only screen and (max-width: 600px) {
-        body {
-            background-color: white;
-        }
-        }
+    .link   {
+        color: black;
+        text-decoration: none;
+    }
+    .mylayout   {
+        
+        justify-content: center;
+        text-align: center;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+    body {
+        background-color: white;
+    }
+    }
 
-    </style>
-    </head>
-
+</style>
+</head>
 <body>
-    <div class = todolist>
-        <h2>{{username}}'s Todolist</h2>
-        <div class="mb-3">
-            <button class="button"><a href="{% url 'todolist:create_task' %}" class="link">Tambah Task Baru</a></button>
-        </div>
-        <table> 
-            
-            <tr>
-            {% comment %} Tambahkan data di bawah baris ini {% endcomment %}{% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-            {% for task in todolists %}
-            
-                {% if task.user == username %}
-                    <tr><div class="card">
-                            <div class="card" style="background-color: rgb(59, 59, 135)">
-                                <div class="card-body">
-                                <h5 class="card-title" style="color: white">{{task.title}}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{task.date}}</h6>
-                                <p class="card-text" style="color: white">{{task.description}}</p>
-                            </div>
+    <script>
+        $(document).ready(function () {
+        $.get('/todolist/json/', function (data) {
+            data.map((todo) =>
+            $('#table').append(
+                `<tr" class="mylayout" >
+                <div class="card">
+                        <div class="card" style="background-color: rgb(59, 59, 135);">
+                            <div class="card-body">
+                            <h5 class="card-title" style="color: white">${todo.fields.title}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">${todo.fields.date}</h6>
+                            <p class="card-text" style="color: white">${todo.fields.description}</p>
                         </div>
+                </div>
+            </tr>`
+            )
+            );
+        });
+        });
+        $(document).ready(function () {
+        $('#buttonajax').click(function (event) {
+            const formData = {
+            csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
+            title: $('#todo-title').val(),
+            description: ($('#todo-desc').val()),
+            };
+            console.log(formData)
+            $.ajax({
+            type: 'POST',
+            url: "/todolist/add/",
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                $('#table').append(
+                    `<tr" class="mylayout" >
+                        <div class="card">
+                                <div class="card" style="background-color: rgb(59, 59, 135)">
+                                    <div class="card-body">
+                                    <h5 class="card-title" style="color: white">${response.title}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">${response.date}</h6>
+                                    <p class="card-text" style="color: white">${response.description}</p>
+                                </div>
+                        </div>
+                </tr>`)
+                    
+                    
                         
-                    </tr>
-            </tr>
-                {% endif %} 
-            {% endfor %}
-            
-        </table>
-        <div class="mb-3">
-            <button class="button"><a href="{% url 'todolist:logout' %}" class="link">Logout</a></button>
-        </div>
-    </div>
-</body>
+            }
 
+            }).done(function (data) {
+            $('#message').text(data.message);
+            $("#myModal").modal('hide');
+            });
+
+            event.preventDefault();
+        });
+        });
+        
+    </script>
+  
+
+  <div class = todolist>
+    <h2>{{username}}'s Todolist</h2>
+        <button class="button"><a href="{% url 'todolist:create_task' %}" class="link">Tambah Task Baru</a></button>
+    <div class="container">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Task</button>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Tambah Todo</h4>
+            </div>
+            <div class="modal-body">
+                <form id="modalform" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="todo-title" class="col-form-label">Title</label>
+                    <input type="text" class="form-control" id="todo-title">
+                </div>
+                <div class="mb-3">
+                    <label for="todo-desc" class="col-form-label">Description:</label>
+                    <input type="text" class="form-control" id="todo-desc" method="post">
+                    
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="submit" name="submit" value="Save" id="buttonajax">
+            </div>
+            </div>
+            
+        </div>
+        </div>
+        
+    
+    <table class="todolist" style="text-align: center ;align-items: center; justify-content: center;
+    width: 900px;
+    height: 600px; 
+    margin-left: 100px;
+    top: 50%;
+    left: 50%;">
+        <tr id="table" class= "mylayout">
+
+        </tr>   
+    </table>
+        <button class="button"><a href="{% url 'todolist:logout' %}" class="link">Logout</a></button>
+    </div>
+</div>
+  
+
+
+
+</body>
+</html>
 {% endblock content %}
